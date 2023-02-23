@@ -1,4 +1,4 @@
-var htmlToBBCode = function(html) {
+const htmlToBBCode = function(html) {
 
     html = html.replace(/<pre(.*?)>(.*?)<\/pre>/gmi, "[code]$2[/code]");
 
@@ -14,7 +14,7 @@ var htmlToBBCode = function(html) {
 
     html = html.replace(/\<a href\="\?tag\=(.*?)"\>(.*?)/gi, ' ');
     html = html.replace(/&nbsp;/g, "\n")
-
+    html = html.replace(/@\[(.*?)\]\(userId\:([0-9]+)\)/,'[USER=$2]$1[/USER]')
     html = html.replace(/<br(.*?)>/gi, "\n");
     html = html.replace(/<textarea(.*?)>(.*?)<\/textarea>/gmi, "\[code]$2\[\/code]");
     html = html.replace(/<b>/gi, "[b]");
