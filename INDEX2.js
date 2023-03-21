@@ -1,5 +1,6 @@
 const htmlToBBCode = function(html) {
-
+    html = html.replace(/\t/g, '')
+    html = html.replace(/\n/g, '')
     html = html.replace(/<pre(.*?)>(.*?)<\/pre>/gmi, "[code]$2[/code]");
 
     html = html.replace(/<h[1-7](.*?)>(.*?)<\/h[1-7]>/, "\n[h]$2[/h]\n");
@@ -18,10 +19,8 @@ const htmlToBBCode = function(html) {
     html = html.replace(/<br(.*?)>/gi, "\n");
     html = html.replace(/<textarea(.*?)>(.*?)<\/textarea>/gmi, "\[code]$2\[\/code]");
     html = html.replace(/<b>/gi, "[b]");
-    html = html.replace(/<i>/gi, "[i]");
     html = html.replace(/<u>/gi, "[u]");
     html = html.replace(/<\/b>/gi, "[/b]");
-    html = html.replace(/<\/i>/gi, "[/i]");
     html = html.replace(/<\/u>/gi, "[/u]");
     html = html.replace(/<em>/gi, "[b]");
     html = html.replace(/<\/em>/gi, "[/b]");
@@ -52,6 +51,7 @@ const htmlToBBCode = function(html) {
 
     html = html.replace(/\/\//gi, "/");
     html = html.replace(/http:\//gi, "http://");
+    html = html.replace(/https:\//gi, "https://");
 
     html = html.replace(/<(?:[^>'"]*|(['"]).*?\1)*>/gmi, "");
     html = html.replace(/\r\r/gi, "");
